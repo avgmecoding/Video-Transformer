@@ -1,13 +1,12 @@
 "use client"
-import { useRouter } from 'next/router';
-import { NextResponse } from 'next/server';
+import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
 
 function RegisterPage() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
-    const router = useRouter();
+    const router = useRouter()
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -29,18 +28,25 @@ function RegisterPage() {
             })
             const data = await response.json();
 
-            if(!response ){
-
+            if(!response.ok){
+                throw new Error(data.error || "Registration Failed")
             }
+            console.log(data);
+            router.push("/login")
+            
         } catch (error) {
-            return NextResponse.json({
-                error: "Failed to register"
-            }, {status: 401})
+            console.log(error);
         }
     }
     return(
         <div>
-            Register Page
+            <h1>Register</h1>
+            <form onSubmit={handleSubmit}>
+                <input type="email" placeholder='Email'value={email} onChange={(e) => setEmail(e.target.value)}/>
+                <input type="password" placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)}/>
+                <input type="password" placeholder='Confirm Password'value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}/>
+                <button type='submit'>Register</button>
+            </form>
         </div>
     )
 }
