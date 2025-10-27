@@ -40,12 +40,12 @@ function RegisterPage() {
     }
     return(
         <div>
-            <h1>Register</h1>
-            <form onSubmit={handleSubmit}>
-                <input type="email" placeholder='Email'value={email} onChange={(e) => setEmail(e.target.value)}/>
-                <input type="password" placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)}/>
-                <input type="password" placeholder='Confirm Password'value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}/>
-                <button type='submit'>Register</button>
+            <h1 className='text-center font-mono text-5xl'>Register</h1>
+            <form className="space-y-6"  onSubmit={handleSubmit}>
+                <input className='text-slate-100 text-sm font-medium mb-2 block' type="email" placeholder='Email'value={email} onChange={(e) => setEmail(e.target.value)}/>
+                <input className='text-slate-100 text-sm font-medium mb-2 block' type="password" placeholder='Password' value={password} onChange={(e) => setPassword(e.target.value)}/>
+                <input className='text-slate-100 text-sm font-medium mb-2 block' type="password" placeholder='Confirm Password'value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)}/>
+                <button className='w py-3 px-4 text-sm tracking-wider font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none cursor-pointer' type='submit'>Register</button>
             </form>
         </div>
     )
