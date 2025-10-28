@@ -51,6 +51,8 @@ const LoginPage = () => {
                     onChange={(e) => setPassword(e.target.value)}
                 />
 
+                {error && <p className="text-red-500 text-sm">{error}</p>}
+
                 <div className="flex justify-center">
                     <button
                         className="py-3 px-6 rounded-md bg-green-500 text-black font-bold hover:bg-green-400 active:scale-95 transition transform duration-200 shadow-[0_0_10px_#00ff9d]"
