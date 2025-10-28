@@ -23,7 +23,7 @@ export default withAuth(
 )
 
 export const config = {
-    matcer:[
+    matcher:[
         "/((?!_next/static|_next/image|favicon.ico|public/).*)"
     ]
 }
