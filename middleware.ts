@@ -1,7 +1,5 @@
 import withAuth from "next-auth/middleware"
 import { NextResponse } from "next/server"
-import { callbackify } from "util"
-
 
 export default withAuth(
     function middleware(){
